@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 const Navbar = () => {
     return (
         <Container>
-            <div className='flex bg-white items-center justify-between'>
+            <div className='flex bg-white items-center justify-between mt-4'>
                  {/* icon here-----ml-5 md:mr-0 lg:mr-0 mt-1 md:mt-0 lg:mt-0 */}
                 <div className='flex items-center gap-1 '>
                     <Unlink className='size-6 bg-blue-500 text-white p-1 rounded-full'></Unlink>
