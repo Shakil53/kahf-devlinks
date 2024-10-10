@@ -11,6 +11,8 @@ const reducer = (currentState, action) => {
     switch (action.type) {
         case 'createLink':
             return [...currentState, action.payload];
+        case 'createProfile':
+            return [...currentState, action.payload];
         default:
             return currentState;
     }

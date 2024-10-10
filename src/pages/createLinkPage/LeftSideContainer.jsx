@@ -37,7 +37,7 @@ const LeftSideContainer = ({ state }) => {
                         </span>
 
                         {/* Link ----*/}
-                        <Link href={item.link} className="text-lg font-bold">
+                        <Link to={item.link} className="text-lg font-bold">
                             →
                         </Link>
                         </div>
