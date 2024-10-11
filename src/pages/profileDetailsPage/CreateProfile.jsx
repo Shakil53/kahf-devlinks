@@ -1,20 +1,13 @@
-import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/Container";
-import { Dialog, DialogClose, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import CreateLinkList from "../createLinkPage/CreateLinkList";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { useContext, useState } from "react";
 import { LinkContext } from "@/context/CreateLinkProvider";
-import LeftSideContainer from "../createLinkPage/LeftSideContainer";
-import { Plus } from "lucide-react";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import uploadIcon from '../../assets/upload.png';
 import { FileUploader } from "react-drag-drop-files";
 import jpgIcon from '../../assets/jpgIcon.png';
 import pngIcon from '../../assets/png.png';
 import ProfileLeftSideContainer from "./ProfileLeftSideContainer";
 import CreateProfileInfo from "./CreateProfileInfo";
+import { CircleX } from "lucide-react";
 
 
 
@@ -89,8 +82,10 @@ const CreateProfile = () => {
                <div className="flex mt-5 mx-auto gap-4">
                 {/* left side container */}
                 <div className="flex-[2] hidden md:block">
-                    <ProfileLeftSideContainer getFileIcon={getFileIcon} handleDelete={handleDelete}></ProfileLeftSideContainer>
+                    <ProfileLeftSideContainer getFileIcon={getFileIcon} files={files} handleDelete={handleDelete}></ProfileLeftSideContainer>
                 </div>
+                  
+
 
                 {/* right side container */}
                 <div className="bg-white mt-5 flex-[3] p-4">
@@ -100,29 +95,28 @@ const CreateProfile = () => {
                     {/* Drag and drop here ---- */}
 
                     <FileUploader
-                                            multiple={true}
-                                            handleChange={handleChange}
-                                            name="myFiles"
-                                            label="Upload or drop files right here"
-                                            required={true}
-                                            disabled={false}
-                                            classes="w-[50%] flex flex-col items-center justify-center border border-dashed border-[#139FAD]"
-                                            types={fileTypes}
-                                            maxSize={20} // 20MB
-                                            onTypeError={handleTypeError}
-                                            onSizeError={handleSizeError}
-                                            onDrop={handleDrop}
-                                            onSelect={handleSelect}
-                                            dropMessageStyle={{ backgroundColor: 'red' }}
-                                        >
-                                            {/* Custom children to replace default design */}
-                                            <div className="flex flex-col items-center justify-center min-h-[60px] sm:min-h-[80px]">
-                                            <img src={uploadIcon} alt="Upload Icon" />
-                                            <p className="text-sm sm:text-md font-bold">Tax Information</p>
-                                          
-                                            </div>
-                                        </FileUploader>
-
+                            multiple={true}
+                            handleChange={handleChange}
+                            name="myFiles"
+                            label="Upload or drop files right here"
+                            required={true}
+                            disabled={false}
+                            classes="w-[40%] mt-5 flex flex-col items-center justify-center border border-dashed border-[#139FAD]"
+                            types={fileTypes}
+                            maxSize={20} // 20MB
+                            onTypeError={handleTypeError}
+                            onSizeError={handleSizeError}
+                            onDrop={handleDrop}
+                            onSelect={handleSelect}
+                            dropMessageStyle={{ backgroundColor: 'red' }}
+                        >
+                            {/* Custom children to replace default design */}
+                            <div className="flex flex-col items-center justify-center min-h-[60px] sm:min-h-[80px]">
+                            <img src={uploadIcon} alt="Upload Icon" />
+                            <p className="text-sm sm:text-md font-bold">Tax Information</p>
+                            
+                            </div>
+                    </FileUploader>
                     <div className="mt-10 bg-gray-100 rounded">
                         <CreateProfileInfo />
                     </div>

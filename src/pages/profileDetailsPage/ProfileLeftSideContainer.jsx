@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import img from '../../assets/mobilemockup.jpg';
-import { Github, Youtube, Twitter } from 'lucide-react';
+import { Github, Youtube, Twitter, CircleX } from 'lucide-react';
 import { useContext, useEffect } from "react";
 import { LinkContext } from "@/context/CreateLinkProvider";
 
-const ProfileLeftSideContainer = () => {
+const ProfileLeftSideContainer = ({getFileIcon, handleDelete, files}) => {
     const { state } = useContext(LinkContext); 
 
     // console.log('from profile', state);
@@ -32,7 +33,7 @@ const ProfileLeftSideContainer = () => {
                     alt="Profile"
                     className="h-[670px] w-[500px] mt-5"
                 />
-                 <div className="absolute -mt-[440px] ml-[170px]">
+                 <div className="absolute -mt-[440px] ml-[208px]">
                     {state.length > 0 && state.map((item, index) => (
                         item.firstName && item.lastName && item.email ? (
                             <div key={index} className="text-lg font-semibold text-black mt-5 space-y-1">
@@ -42,6 +43,26 @@ const ProfileLeftSideContainer = () => {
                         ) : null
                     ))}
                 </div>
+                {/* Display Uploaded Files */}
+                <div  className="absolute -mt-[485px] ml-[200px] rounded-full" >
+                            {files.length > 0 ? (
+                                files.map((file, index) => (
+                                <div key={index} className="relative rounded-full p-2 ">
+                                    {file.type.startsWith("image/") ? (
+                                    <img src={URL.createObjectURL(file)} alt="Selected" className="w-20 h-14 object-cover" />
+                                    ) : (
+                                    <img src={getFileIcon(file.name)} alt="File Icon" className="w-10 h-10" />
+                                    )}
+                                    <button
+                                    onClick={() => handleDelete(index)}
+                                    className="absolute top-0 right-0 text-red-500 ml-3 hover:text-red-700"
+                                    >
+                                   
+                                    </button>
+                                </div>
+                                        ))
+                                    ) : ''}
+                    </div>
                 <div className='absolute -mt-[380px] ml-36'>
                     {state.map((item) => (
                         <div key={item.id} className="space-y-2 text-center mt-5 space-x-5">
