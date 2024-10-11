@@ -89,7 +89,7 @@ const CreateProfile = () => {
                <div className="flex mt-5 mx-auto gap-4">
                 {/* left side container */}
                 <div className="flex-[2] hidden md:block">
-                    <ProfileLeftSideContainer state={state} getFileIcon={getFileIcon} handleDelete={handleDelete}></ProfileLeftSideContainer>
+                    <ProfileLeftSideContainer getFileIcon={getFileIcon} handleDelete={handleDelete}></ProfileLeftSideContainer>
                 </div>
 
                 {/* right side container */}

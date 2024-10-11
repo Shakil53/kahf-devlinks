@@ -31,7 +31,7 @@ const CreateLinkList = () => {
                         <Input
                             id={`platform-${link.id}`}
                             name={`platform-${link.id}`}
-                            className="w-full"
+                            className="w-full bg-white"
                             value={link.platform}
                             readOnly
                         />
@@ -44,7 +44,7 @@ const CreateLinkList = () => {
                                 <Input
                                     id={`link-${link.id}`}
                                     name={`link-${link.id}`}
-                                    className="w-full"
+                                    className="w-full bg-white"
                                     defaultValue={link.link} 
                                 />
                             </div>

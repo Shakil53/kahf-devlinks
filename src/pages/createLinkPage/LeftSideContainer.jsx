@@ -13,36 +13,41 @@ const LeftSideContainer = ({ state }) => {
                   alt="Profile"
                   className="h-[670px] w-[500px] mt-5"
                 />
-                <div className='absolute -mt-[480px] ml-44'>
-                    {state.map((item) => (
-                    <div key={item.id} className="space-y-2 text-center mt-5 space-x-5">
-                        
-                        <div
-                        className={`flex justify-between items-center py-3 px-5 rounded-lg text-white border p-2 w-full max-w-md mx-auto ${
-                            item.platform === 'github'
-                            ? 'bg-black'
-                            : item.platform === 'youtube'
-                            ? 'bg-red-500'
-                            : item.platform === 'twitter'
-                            ? 'bg-blue-400'
-                            : 'bg-gray-300'
-                        }`}
-                        >
-                    {/* icon----- */}
-                        <span className="text-lg font-semibold capitalize flex items-center justify-center gap-2">
-                            {item.platform === 'github' && <Github />}
-                            {item.platform === 'youtube' && <Youtube />}
-                            {item.platform === 'twitter' && <Twitter />}
-                            {item.platform.charAt(0).toUpperCase() + item.platform.slice(1)}
-                        </span>
+                <div className='absolute -mt-[430px] ml-36'>
+                {state.map((item) => (
+            item.platform === 'github' || item.platform === 'youtube' || item.platform === 'twitter' ? (
+            <div key={item.id} className="space-y-2 text-center mt-5 space-x-5">
+                <div className="text-lg font-semibold text-black">
+                   
+                </div>
+                {/* Platform and link section */}
+                <div
+                    className={`flex justify-between items-center py-3 px-5 rounded-lg text-white border w-full max-w-md mx-auto ${
+                        {
+                            github: 'bg-black',
+                            youtube: 'bg-red-500',
+                            twitter: 'bg-blue-400',
+                        }[item.platform]
+                    }`}
+                >
+                    <span className="text-lg font-semibold capitalize flex items-center justify-center gap-2">
+                        {item.platform && (
+                            <>
+                                {item.platform === 'github' && <Github />}
+                                {item.platform === 'youtube' && <Youtube />}
+                                {item.platform === 'twitter' && <Twitter />}
+                                {item.platform.charAt(0).toUpperCase() + item.platform.slice(1)}
+                            </>
+                        )}
+                    </span>
 
-                        {/* Link ----*/}
-                        <Link to={item.link} className="text-lg font-bold">
-                            →
-                        </Link>
-                        </div>
-                    </div>
-                    ))}
+                    <Link to={item.link} className="text-lg font-bold">
+                        →
+                    </Link>
+                </div>
+            </div>
+            ) : null  // Do not render anything if platform does not match
+                ))}
                 </div>
               </div>
         
