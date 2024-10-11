@@ -13,6 +13,8 @@ const reducer = (currentState, action) => {
             return [...currentState, action.payload];
         case 'createProfile':
             return [...currentState, action.payload];
+            case 'removeLink': 
+            return currentState.filter(link => link.id !== action.payload);
         default:
             return currentState;
     }

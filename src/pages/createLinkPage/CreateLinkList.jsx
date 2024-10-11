@@ -9,9 +9,13 @@ import { useContext } from 'react';
 
 const CreateLinkList = () => {
 
-   const {state} = useContext(LinkContext)
+   const {state, dispatch} = useContext(LinkContext)
 
     // console.log(state);
+
+    const handleRemove = (id) => {
+        dispatch({ type: 'removeLink', payload: id });
+    };
    
     return (
         <div>
@@ -21,7 +25,7 @@ const CreateLinkList = () => {
                         <p className='flex gap-1 font-semibold text-sm items-center justify-center'>
                             <Equal className='size-5' />Link #{index + 1}
                         </p>
-                        <button className="text-slate-400 text-sm">Remove</button>
+                        <button onClick={() => handleRemove(link.id)} className="text-slate-400 text-sm">Remove</button>
                     </div>
                     <div className="grid sm:grid-cols-12 py-2">
                         <div className="sm:col-span-12 items-center gap-4">

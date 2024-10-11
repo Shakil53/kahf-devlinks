@@ -34,7 +34,7 @@ const ProfileLeftSideContainer = ({getFileIcon, handleDelete, files}) => {
                 <img
                     src={img} 
                     alt="Profile"
-                    className="h-[670px] w-[500px] mt-5"
+                    className="h-[670px] w-[500px] mt-5 rounded"
                 />
                  <div className="absolute -mt-[440px] mx-auto ml-40">
                     {state.length > 0 && state.map((item, index) => (
@@ -47,12 +47,12 @@ const ProfileLeftSideContainer = ({getFileIcon, handleDelete, files}) => {
                     ))}
                 </div>
                 {/* Display Uploaded Files */}
-                <div  className="absolute -mt-[485px] ml-[200px] rounded-full" >
+                <div  className="absolute -mt-[520px] ml-[200px] rounded-full" >
                             {files.length > 0 ? (
                                 files.map((file, index) => (
                                 <div key={index} className="relative rounded-full p-2 ">
                                     {file.type.startsWith("image/") ? (
-                                    <img src={URL.createObjectURL(file)} alt="Selected" className="w-20 h-14 object-cover" />
+                                    <img src={URL.createObjectURL(file)} alt="Selected" className="w-20 h-20 object-cover rounded-full" />
                                     ) : (
                                     <img src={getFileIcon(file.name)} alt="File Icon" className="w-10 h-10" />
                                     )}

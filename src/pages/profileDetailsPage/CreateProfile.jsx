@@ -9,8 +9,6 @@ import ProfileLeftSideContainer from "./ProfileLeftSideContainer";
 import CreateProfileInfo from "./CreateProfileInfo";
 
 
-
-
 const fileIcons = {
     JPG: jpgIcon,
     PNG: pngIcon,

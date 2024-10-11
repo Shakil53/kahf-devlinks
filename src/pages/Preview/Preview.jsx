@@ -9,27 +9,23 @@ const Preview = () => {
     const [imagePreview, setImagePreview] = useState("");
 
     useEffect(() => {
-        if (state.length > 0) {
-            const fileItem = state[0]; 
-
-            if (fileItem.file && fileItem.file.length > 0) {
-                const file = fileItem.file[0]; 
-
+        const loadImagePreview = () => {
+            // Get the first file (assuming only one profile picture exists)
+            const fileItem = state.find(item => item.file && item.file.length > 0);
+            
+            if (fileItem && fileItem.file && fileItem.file.length > 0) {
+                const file = fileItem.file[0];
                 if (file instanceof File) {
                     const reader = new FileReader();
-
                     reader.onloadend = () => {
                         setImagePreview(reader.result); // base64 string
                     };
-
                     reader.readAsDataURL(file); // Read the file as Data URL
-                } else {
-                    console.log("Not a valid file object:", file);
                 }
-            } else {
-                console.log("No file found in the file property:", fileItem);
             }
-        }
+        };
+
+        loadImagePreview();
     }, [state]);
 
     return (
@@ -42,27 +38,33 @@ const Preview = () => {
                     Share link
                 </Button>
             </div>
-            <div className="absolute bg-white w-72 h-96 shadow rounded-3xl mt-64" style={{ marginLeft: "550px" }}>
+
+            <div className="absolute bg-white w-80 h-96 shadow rounded-3xl mt-64" style={{ marginLeft: "550px" }}>
                 {/* Image Preview */}
-                {imagePreview && (
+                {imagePreview ? (
                     <img
                         src={imagePreview}
                         alt="Preview"
-                        className="w-32 h-32 object-cover rounded items-center flex mx-auto mt-2"
+                        className="size-24 object-cover rounded-full items-center flex mx-auto mt-1"
                     />
-                )}
+                ) : ''}
+
                 {/* User Data */}
                 {state.length > 0 ? (
                     state.map(item => (
                         <div key={item.id}>
-                            <p className="text-2xl font-bold text-center">{item.firstName} {item.lastName}</p>
-                            <p className="text-gray-500 text-center">{item.email}</p> 
+                            {item.firstName && (
+                                <p className="text-lg font-semibold text-center">{item.firstName} {item.lastName}</p>
+                            )}
+                            {item.email && (
+                                <p className="text-gray-500 text-center text-xs">{item.email}</p>
+                            )}
                         </div>
                     ))
-                ) : ''}
+                ) : null}
 
                 {/* Platform Links */}
-                <div className='absolute mt-24 mx-auto items-center ml-10'>
+                <div className='absolute mt-2 mx-auto items-center ml-12'>
                     {state.map((item) => (
                         (item.platform === 'github' || item.platform === 'youtube' || item.platform === 'twitter') ? (
                             <div key={item.id} className=" text-center mt-5 space-x-5">
@@ -78,14 +80,10 @@ const Preview = () => {
                                     }`}
                                 >
                                     <span className="text-lg font-semibold capitalize flex items-center justify-center gap-2">
-                                        {item.platform && (
-                                            <>
-                                                {item.platform === 'github' && <Github />}
-                                                {item.platform === 'youtube' && <Youtube />}
-                                                {item.platform === 'twitter' && <Twitter />}
-                                                {item.platform.charAt(0).toUpperCase() + item.platform.slice(1)}
-                                            </>
-                                        )}
+                                        {item.platform === 'github' && <Github />}
+                                        {item.platform === 'youtube' && <Youtube />}
+                                        {item.platform === 'twitter' && <Twitter />}
+                                        {item.platform.charAt(0).toUpperCase() + item.platform.slice(1)}
                                     </span>
                                     <Link to={item.link} className="text-lg font-bold">
                                         →

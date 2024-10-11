@@ -10,13 +10,12 @@ const CreateProfileInfo = () => {
     const [email, setEmail] = useState();
 
 
-    const id = Math.random().toString(36).substring(2, 7);
 
     const handleProfileInfo = (e) => {
         e.preventDefault();
 
         const createdProfile = {
-            id: id,
+            
             firstName: firstName,
             lastName: lastName,
             email: email,

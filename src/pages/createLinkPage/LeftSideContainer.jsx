@@ -46,7 +46,7 @@ const LeftSideContainer = ({ state }) => {
                     </Link>
                 </div>
             </div>
-            ) : null  // Do not render anything if platform does not match
+            ) : null 
                 ))}
                 </div>
               </div>
