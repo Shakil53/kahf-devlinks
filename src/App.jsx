@@ -6,6 +6,7 @@ import { useState } from "react";
 import Preview from "./pages/Preview/Preview";
 
 
+
 const App = () => {
   const [activePage, setActivePage] = useState("links"); 
 
@@ -24,8 +25,10 @@ const App = () => {
 
   return (
     <CreateLinkProvider>
-    <Navbar setActivePage={setActivePage} activePage={activePage} /> 
-    {renderPage()} 
+    {activePage !== "preview" && (
+        <Navbar setActivePage={setActivePage} activePage={activePage} />
+      )}
+      {renderPage()}
   </CreateLinkProvider>
   );
 };

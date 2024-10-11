@@ -1,16 +1,16 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import img from '../../assets/mobilemockup.jpg';
-import { Github, Youtube, Twitter, CircleX } from 'lucide-react';
+import { Github, Youtube, Twitter } from 'lucide-react';
 import { useContext, useEffect } from "react";
 import { LinkContext } from "@/context/CreateLinkProvider";
 
 const ProfileLeftSideContainer = ({getFileIcon, handleDelete, files}) => {
-    const { state } = useContext(LinkContext); 
+    const { state, dispatch } = useContext(LinkContext); 
 
     // console.log('from profile', state);
     useEffect(() => {
-        console.log("State data: ", state);
+        // console.log("State data: ", state);
         if (state && state.length > 0) {
             state.forEach((item) => {
                 ({
@@ -22,6 +22,9 @@ const ProfileLeftSideContainer = ({getFileIcon, handleDelete, files}) => {
             });
         }
     }, [state]);
+
+    // file dispatch
+    dispatch(files)
     
     return (
         <div className="flex flex-col items-center">
@@ -33,7 +36,7 @@ const ProfileLeftSideContainer = ({getFileIcon, handleDelete, files}) => {
                     alt="Profile"
                     className="h-[670px] w-[500px] mt-5"
                 />
-                 <div className="absolute -mt-[440px] ml-[208px]">
+                 <div className="absolute -mt-[440px] mx-auto ml-40">
                     {state.length > 0 && state.map((item, index) => (
                         item.firstName && item.lastName && item.email ? (
                             <div key={index} className="text-lg font-semibold text-black mt-5 space-y-1">

@@ -38,8 +38,9 @@ const CreateProfile = () => {
             id: id,
             platform: platform,
             link: link,
+            
         };
-
+        console.log(handleSubmit);
         dispatch({ type: 'createLink', payload: createdLink });
     };
     // --------------------------
@@ -66,8 +67,15 @@ const CreateProfile = () => {
         };
     
         const handleSelect = (file) => {
-            console.log("Selected file:", file);
-            };
+            dispatch({
+                type: 'createLink', 
+                payload: {
+                    id: new Date().getTime(), // Unique ID for the file
+                    file: file, // The actual File object
+                    // Other fields can go here, e.g., email, etc.
+                },
+            });
+        };
     
       const handleDelete = (index) => {
         const updatedFiles = [...files];

@@ -6,7 +6,7 @@ import { Unlink, Link2, UserPen, Eye  } from 'lucide-react';
 
 const Navbar = ({ setActivePage, activePage }) => {
     const getActiveClass = (page) => {
-        return activePage === page ? "bg-blue-200 text-blue-700" : "bg-blue-50 text-black"; // Change styles based on active page
+        return activePage === page ? "bg-blue-200 text-blue-700" : "bg-blue-50 text-black";
       };
     return (
         <Container>
