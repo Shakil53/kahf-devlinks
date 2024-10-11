@@ -7,7 +7,7 @@ import jpgIcon from '../../assets/jpgIcon.png';
 import pngIcon from '../../assets/png.png';
 import ProfileLeftSideContainer from "./ProfileLeftSideContainer";
 import CreateProfileInfo from "./CreateProfileInfo";
-import { CircleX } from "lucide-react";
+
 
 
 
@@ -70,9 +70,8 @@ const CreateProfile = () => {
             dispatch({
                 type: 'createLink', 
                 payload: {
-                    id: new Date().getTime(), // Unique ID for the file
-                    file: file, // The actual File object
-                    // Other fields can go here, e.g., email, etc.
+                    id: new Date().getTime(), 
+                    file: file, 
                 },
             });
         };
@@ -119,9 +118,9 @@ const CreateProfile = () => {
                             dropMessageStyle={{ backgroundColor: 'red' }}
                         >
                             {/* Custom children to replace default design */}
-                            <div className="flex flex-col items-center justify-center min-h-[60px] sm:min-h-[80px]">
+                            <div className="flex flex-col items-center justify-center min-h-[60px] sm:min-h-[60px]">
                             <img src={uploadIcon} alt="Upload Icon" />
-                            <p className="text-sm sm:text-md font-bold">Tax Information</p>
+                            <p className="text-sm  font-bold">Drag and drop image</p>
                             
                             </div>
                     </FileUploader>

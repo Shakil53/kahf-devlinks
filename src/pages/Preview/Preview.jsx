@@ -36,7 +36,7 @@ const Preview = () => {
         <div className="bg-blue-600 h-96 rounded-b-3xl relative">
             <div className="absolute flex justify-between w-full items-center mt-5 bg-white rounded p-2">
                 <Button className="bg-white text-black border border-blue-500 ml-5 hover:bg-white">
-                    <Link to='/'>Back to Editor</Link>
+                    <Link to='/profileDetails'>Back to Editor</Link>
                 </Button>
                 <Button className="bg-blue-500 text-white border border-blue-500 ml-5 hover:bg-blue-500">
                     Share link

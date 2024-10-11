@@ -1,35 +1,19 @@
 import CreateLinkProvider from "./context/CreateLinkProvider";
-import CreateLinkPage from "./pages/createLinkPage/createLinkPage";
-import Navbar from "./shared/navbar/Navbar";
-import CreateProfile from "./pages/profileDetailsPage/createProfile";
-import { useState } from "react";
-import Preview from "./pages/Preview/Preview";
-
-
+import { Outlet } from "react-router-dom"; 
+import Navbar from "./shared/navbar/Navbar"; 
+import { useLocation } from "react-router-dom";
 
 const App = () => {
-  const [activePage, setActivePage] = useState("links"); 
+  const location = useLocation(); 
 
-  const renderPage = () => {
-    switch (activePage) {
-      case "links":
-        return <CreateLinkPage />;
-      case "profile":
-        return <CreateProfile />;
-        case "preview":
-          return <Preview />;
-      default:
-        return <CreateLinkPage />;
-    }
-  };
+ 
+  const isPreviewPage = location.pathname === '/preview';
 
   return (
     <CreateLinkProvider>
-    {activePage !== "preview" && (
-        <Navbar setActivePage={setActivePage} activePage={activePage} />
-      )}
-      {renderPage()}
-  </CreateLinkProvider>
+      {!isPreviewPage && <Navbar />} 
+      <Outlet /> 
+    </CreateLinkProvider>
   );
 };
 
