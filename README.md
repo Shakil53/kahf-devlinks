@@ -1,8 +1,45 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Assalamu Alaikum
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Project Name-- Kahf-devlinks
+
+## Projet Title
+
+DevLinks is a web application that allows users to create and customize links to their social media profiles and other online resources. Users can add various platforms, manage their links, and generate a preview of their profile.
+
+## Table of Contents
+
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+
+
+## Technologies Used
+
+- React + vite
+- Tailwind CSS 
+- shadcn css framwork
+
+## Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Shakil53/kahf-devlinks
+
+   cd your-repo
+
+   npm init
+
+   npm i react-router-dom
+
+   npm install -D tailwindcss postcss autoprefixer
+
+   npx tailwindcss init -p
+
+   npm i -D @types/node
+
+   npx shadcn@latest init
+
+   npm i react-drag-drop-files
+
+
