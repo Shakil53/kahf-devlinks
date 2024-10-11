@@ -18,7 +18,7 @@ DevLinks is a web application that allows users to create and customize links to
 
 - React + vite
 - Tailwind CSS 
-- shadcn css framwork
+- shadcn css framework
 
 ## Installation
 
@@ -29,6 +29,8 @@ DevLinks is a web application that allows users to create and customize links to
    cd your-repo
 
    npm init
+
+   npm run dev
 
    npm i react-router-dom
 
@@ -42,4 +44,20 @@ DevLinks is a web application that allows users to create and customize links to
 
    npm i react-drag-drop-files
 
+   [
+      - shadcn component
+   
+   npx shadcn@latest add select
 
+   npx shadcn@latest add button
+
+   npx shadcn@latest add dialog
+
+   npx shadcn@latest add input
+
+   npx shadcn@latest add label
+
+
+
+
+   ]

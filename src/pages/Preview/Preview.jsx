@@ -3,6 +3,7 @@ import { LinkContext } from "@/context/CreateLinkProvider";
 import { Github, Twitter, Youtube } from "lucide-react";
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
 
 const Preview = () => {
     const { state } = useContext(LinkContext);
@@ -28,18 +29,31 @@ const Preview = () => {
         loadImagePreview();
     }, [state]);
 
+    // -----------------
+    const handleShare = (link) => {
+        navigator.clipboard.writeText(link)
+            .then(() => {
+                toast.success('saved the data')
+            })
+            .catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+    };
+
     return (
-        <div className="bg-blue-600 h-96 rounded-b-3xl relative">
+        <div className="bg-blue-600 h-72 md:h-96 rounded-b-3xl relative">
             <div className="absolute flex justify-between w-full items-center mt-5 bg-white rounded p-2">
                 <Button className="bg-white text-black border border-blue-500 ml-5 hover:bg-white">
                     <Link to='/profileDetails'>Back to Editor</Link>
                 </Button>
-                <Button className="bg-blue-500 text-white border border-blue-500 ml-5 hover:bg-blue-500">
+                <Button
+                    onClick={handleShare}
+                    className="bg-blue-500 text-white border border-blue-500 ml-5 hover:bg-blue-500">
                     Share link
                 </Button>
             </div>
 
-            <div className="absolute bg-white w-80 h-96 shadow rounded-3xl mt-64" style={{ marginLeft: "550px" }}>
+            <div className="absolute bg-white w-60 md:w-80 h-72 md:h-96 shadow rounded-3xl mt-40 md:mt-64 ml-16 md:ml-[550px]" >
                 {/* Image Preview */}
                 {imagePreview ? (
                     <img

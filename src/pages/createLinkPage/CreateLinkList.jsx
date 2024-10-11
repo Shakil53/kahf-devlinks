@@ -3,6 +3,7 @@ import { Label } from '@/components/ui/label';
 import { LinkContext } from '@/context/CreateLinkProvider';
 import { Equal } from 'lucide-react';
 import { useContext } from 'react';
+import { toast } from 'sonner';
 
 
 
@@ -25,7 +26,12 @@ const CreateLinkList = () => {
                         <p className='flex gap-1 font-semibold text-sm items-center justify-center'>
                             <Equal className='size-5' />Link #{index + 1}
                         </p>
-                        <button onClick={() => handleRemove(link.id)} className="text-slate-400 text-sm">Remove</button>
+                        <button onClick={() =>
+                        {
+                            handleRemove(link.id)
+                            toast.error('Successfully removed');    
+                        }
+                         } className="text-slate-400 text-sm">Remove</button>
                     </div>
                     <div className="grid sm:grid-cols-12 py-2">
                         <div className="sm:col-span-12 items-center gap-4">

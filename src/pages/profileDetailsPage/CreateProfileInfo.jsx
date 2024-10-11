@@ -2,6 +2,7 @@ import { LinkContext } from "@/context/CreateLinkProvider";
 import { useContext, useState } from "react";
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { toast } from "sonner";
 
 const CreateProfileInfo = () => {
     const { state, dispatch } = useContext(LinkContext);
@@ -62,7 +63,7 @@ const CreateProfileInfo = () => {
                         />
                         </div>
                         <div className="flex justify-end sm:col-span-12 items-center mt-8">
-                           <button type="submit" className="px-3 py-1.5 font-semibold rounded bg-blue-500 text-white">Save</button>
+                           <button onClick={()=> toast.success('successfully saved')} type="submit" className="px-3 py-1.5 font-semibold rounded bg-blue-500 text-white">Save</button>
                         </div>
 
 

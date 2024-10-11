@@ -94,8 +94,8 @@ const CreateProfile = () => {
 
                 {/* right side container */}
                 <div className="bg-white mt-5 flex-[3] p-4">
-                    <p className="text-3xl font-bold">Profile Details</p>
-                    <p>Add your details to create a personal touch to your profile</p>
+                    <p className="text-3xl font-bold text-center md:text-start">Profile Details</p>
+                    <p className="text-center md:text-start text-sm md:text-md">Add your details to create a personal touch to your profile</p>
                 
                     {/* Drag and drop here ---- */}
 
@@ -106,7 +106,7 @@ const CreateProfile = () => {
                             label="Upload or drop files right here"
                             required={true}
                             disabled={false}
-                            classes="w-[40%] mt-5 flex flex-col items-center justify-center border border-dashed border-[#139FAD]"
+                            classes="w-[70%] md:w-[40%] mt-5 flex flex-col items-center justify-center border border-dashed border-[#139FAD] mx-auto md:mx-0"
                             types={fileTypes}
                             maxSize={20} // 20MB
                             onTypeError={handleTypeError}

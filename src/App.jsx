@@ -2,6 +2,8 @@ import CreateLinkProvider from "./context/CreateLinkProvider";
 import { Outlet } from "react-router-dom"; 
 import Navbar from "./shared/navbar/Navbar"; 
 import { useLocation } from "react-router-dom";
+import { Toaster } from "sonner";
+
 
 const App = () => {
   const location = useLocation(); 
@@ -11,8 +13,10 @@ const App = () => {
 
   return (
     <CreateLinkProvider>
-      {!isPreviewPage && <Navbar />} 
-      <Outlet /> 
+     <Toaster richColors/>
+        {!isPreviewPage && <Navbar />} 
+          <Outlet /> 
+     
     </CreateLinkProvider>
   );
 };
